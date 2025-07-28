@@ -1,6 +1,6 @@
-import React from 'react'
-import Company from '../../../public/img/company.png'
-import Image from 'next/image'
+import React from "react";
+import Company from "../../../public/img/company.png";
+import Image from "next/image";
 import { MdApps } from "react-icons/md";
 import { GoUpload } from "react-icons/go";
 import { MdOutlineWorkHistory } from "react-icons/md";
@@ -66,6 +66,6 @@ const nav = () => {
       </div>
     </div>
   );
-}
+};
 
-export default nav
+export default nav;

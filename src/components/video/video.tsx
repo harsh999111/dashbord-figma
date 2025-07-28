@@ -1,111 +1,75 @@
-import React from 'react'
-import Football from '../../../public/img/Football1.png'
-import Football1 from '../../../public/img/Football2.png'
-import Football2 from '../../../public/img/Football3.png'
-import Football3 from '../../../public/img/Football4.png'
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 import { IoFootballSharp } from "react-icons/io5";
 import { CiCalendarDate } from "react-icons/ci";
 
-const video = () => {
-  return (
-    <div>
-      <div className="flex justify-between">
-        <h1 className="font-bold">Uploaded Videos</h1>
-        <div className="font-bold">View All</div>
-      </div>
-      <div className="flex gap-x-3.5">
-        <div className="py-1">
-          <div>
-            <Image src={Football} alt="Football" className="h-44 w-[340px]" />
-          </div>
-          <div>
-            <h1>Soccer Dribbling Skills Workshop</h1>
-          </div>
-          <div className="flex gap-x-3">
-            <div className="flex gap-x-2">
-              <span className="mt-1">
-                <IoFootballSharp className="text-pink-400" />
-              </span>
-              <h1>Soccer</h1>
-            </div>
-            <div className="flex gap-x-2">
-              <span className="mt-1">
-                <CiCalendarDate className="text-pink-400" />
-              </span>
-              <h1>30 june</h1>
-            </div>
-          </div>
-        </div>
-        <div className="py-1">
-          <div>
-            <Image src={Football1} alt="Football" className="h-44 w-[340px]" />
-          </div>
-          <div>
-            <h1>Tennis Serve Technique Session</h1>
-          </div>
-          <div className="flex gap-x-3">
-            <div className="flex gap-x-2">
-              <span className="mt-1">
-                <IoFootballSharp className="text-pink-400" />
-              </span>
-              <h1>tennis</h1>
-            </div>
-            <div className="flex gap-x-2">
-              <span className="mt-1">
-                <CiCalendarDate className="text-pink-400" />
-              </span>
-              <h1>01 july</h1>
-            </div>
-          </div>
-        </div>
-        <div className="py-1">
-          <div>
-            <Image src={Football2} alt="Football" className="h-44 w-[340px]" />
-          </div>
-          <div>
-            <h1>Swimming Stroke Improvement Clinic</h1>
-          </div>
-          <div className="flex gap-x-3">
-            <div className="flex gap-x-2">
-              <span className="mt-1">
-                <IoFootballSharp className="text-pink-400" />
-              </span>
-              <h1>Swimming</h1>
-            </div>
-            <div className="flex gap-x-2">
-              <span className="mt-1">
-                <CiCalendarDate className="text-pink-400" />
-              </span>
-              <h1>03 july</h1>
-            </div>
-          </div>
-        </div>
-        <div className="py-1">
-          <div>
-            <Image src={Football3} alt="Football" className="h-44 w-[340px]" />
-          </div>
-          <div>
-            <h1>Volleyball Team Strategy Meeting</h1>
-          </div>
-          <div className="flex gap-x-3">
-            <div className="flex gap-x-2">
-              <span className="mt-1">
-                <IoFootballSharp className="text-pink-400" />
-              </span>
-              <h1>Volleyball</h1>
-            </div>
-            <div className="flex gap-x-2">
-              <span className="mt-1">
-                <CiCalendarDate className="text-pink-400" />
-              </span>
-              <h1>05 july</h1>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+// Images
+import Football from "../../../public/img/Football1.png";
+import Football1 from "../../../public/img/Football2.png";
+import Football2 from "../../../public/img/Football3.png";
+import Football3 from "../../../public/img/Football4.png";
 
-export default video
+const videoData = [
+  {
+    img: Football,
+    title: "Soccer Dribbling Skills Workshop",
+    sport: "Soccer",
+    date: "30 June",
+  },
+  {
+    img: Football1,
+    title: "Tennis Serve Technique Session",
+    sport: "Tennis",
+    date: "01 July",
+  },
+  {
+    img: Football2,
+    title: "Swimming Stroke Improvement Clinic",
+    sport: "Swimming",
+    date: "03 July",
+  },
+  {
+    img: Football3,
+    title: "Volleyball Team Strategy Meeting",
+    sport: "Volleyball",
+    date: "05 July",
+  },
+];
+
+const Video = () => {
+  return (
+    <section className="px-4 pt-4">
+      <div className="flex justify-between items-center mb-4">
+        <h1 className="font-bold text-base">Uploaded Videos</h1>
+        <div className="font-bold text-sm text-blue-600 cursor-pointer hover:underline">
+          View All
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {videoData.map((video, index) => (
+          <div key={index} className="bg-white rounded-xl shadow-sm p-2">
+            <Image
+              src={video.img}
+              alt={video.title}
+              className="w-full h-44 object-cover rounded-lg"
+            />
+            <h2 className="font-medium mt-2 text-sm">{video.title}</h2>
+            <div className="flex gap-x-4 mt-2 text-sm text-gray-700">
+              <div className="flex items-center gap-x-1">
+                <IoFootballSharp className="text-pink-400" />
+                <span>{video.sport}</span>
+              </div>
+              <div className="flex items-center gap-x-1">
+                <CiCalendarDate className="text-pink-400" />
+                <span>{video.date}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default Video;

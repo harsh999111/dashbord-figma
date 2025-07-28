@@ -1,126 +1,98 @@
-import Image from 'next/image';
-import React from 'react'
-import Chart from '../../../public/img/Chart.png'
-import Football from '../../../public/img/Football.png'
+import Image from "next/image";
+import React from "react";
+import Chart from "../../../public/img/Chart.png";
+import Football from "../../../public/img/Football.png";
 import { IoFootballSharp } from "react-icons/io5";
-import { CiStar } from "react-icons/ci";
+import { CiStar, CiCalendarDate } from "react-icons/ci";
 import { IoIosArrowDown } from "react-icons/io";
-import { CiCalendarDate } from "react-icons/ci";
 import { MdOutlineFileDownloadDone } from "react-icons/md";
 
+const activities = [
+  { text: "Upload new video", date: "28 June" },
+  { text: "Received feedback from trainer", date: "20 June" },
+  { text: "Completed project milestone", date: "22 June" },
+  { text: "Conducted user testing sessions", date: "25 June" },
+  { text: "Finalized design revisions", date: "28 June" },
+];
 
-const performance = () => {
+const Performance = () => {
   return (
-    <section className="grid grid-cols-2 gap-x-6 ">
-      <div className="border border-gray-300 rounded-xl px-8 h-[335px]">
-        <div className="flex justify-between pt-4 pb-3">
-          <h1 className="font-bold">Performance Overview</h1>
-          <div className="flex gap-x-2">
-            <h1>Month</h1>
-            <div className="mt-1">
-              <IoIosArrowDown />
-            </div>
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 pt-4">
+      {/* Performance Overview Card */}
+      <div className="border border-gray-300 rounded-xl px-6 py-4">
+        <div className="flex justify-between items-center pb-3">
+          <h1 className="font-bold text-base">Performance Overview</h1>
+          <div className="flex items-center gap-x-1 text-sm text-gray-600">
+            <span>Month</span>
+            <IoIosArrowDown />
           </div>
         </div>
-        <div>
-          <Image src={Chart} alt="chart" className="h-[280px]" />
-        </div>
+        <Image
+          src={Chart}
+          alt="Chart"
+          className="w-full h-[250px] object-contain"
+        />
       </div>
-      <div>
-        <div className="pt-4 border border-gray-300  px-4 rounded-2xl h-[165px]">
-          <h1 className="font-bold text-base">Latest feedback</h1>
-          <div className="pt-4 flex gap-x-2   ">
-            <Image src={Football} alt="Football" className="h-24 w-20" />
+
+      {/* Right Column: Feedback + Recent Activity */}
+      <div className="flex flex-col gap-y-4">
+        {/* Latest Feedback Card */}
+        <div className="border border-gray-300 rounded-2xl px-4 py-3">
+          <h1 className="font-bold text-base">Latest Feedback</h1>
+          <div className="flex gap-x-3 pt-3">
+            <Image
+              src={Football}
+              alt="Football"
+              className="w-20 h-24 object-cover rounded-lg"
+            />
             <div>
-              <h1 className="text-sm">Basketball Free Throw Practice</h1>
-              <div className="flex gap-x-3">
-                <div className="flex gap-x-2  text-sm">
-                  <span className="mt-1 ">
-                    <IoFootballSharp className="text-sm text-pink-500" />
-                  </span>
-                  <h2>Football</h2>
+              <h2 className="text-sm font-medium">
+                Basketball Free Throw Practice
+              </h2>
+              <div className="flex gap-x-4 text-xs text-gray-700 mt-1">
+                <div className="flex items-center gap-x-1">
+                  <IoFootballSharp className="text-pink-500" />
+                  <span>Football</span>
                 </div>
-                <div className="flex gap-x-2  text-sm">
-                  <span className="mt-1 ">
-                    <CiCalendarDate className="text-sm text-pink-500" />
-                  </span>
-                  <h2>28Th june</h2>
+                <div className="flex items-center gap-x-1">
+                  <CiCalendarDate className="text-pink-500" />
+                  <span>28th June</span>
                 </div>
               </div>
-              <div className="flex gap-x-3.5 pt-1">
-                <div className="">
-                  <button className="bg-green-800 p-1 px-4 text-white rounded-2xl">
-                    Good
-                  </button>
-                </div>
-                <div className="flex ">
-                  <span className="mt-1">
-                    <CiStar />
-                  </span>
-                  <h1>(4.2/5)</h1>
+              <div className="flex gap-x-4 items-center mt-2">
+                <button className="bg-green-700 text-white text-xs px-3 py-1 rounded-2xl">
+                  Good
+                </button>
+                <div className="flex items-center gap-x-1 text-sm">
+                  <CiStar />
+                  <span>(4.2/5)</span>
                 </div>
               </div>
-              <div className="pt-2 py-4">
-                <h1 className="text-gray-500 text-sm">
-                  &quot;Good tempo overall. Let&apos;s challenge..
-                </h1>
-              </div>
+              <p className="text-gray-500 text-sm mt-2">
+                &quot;Good tempo overall. Let&apos;s challenge...&quot;
+              </p>
             </div>
           </div>
         </div>
-        <div className="border border-gray-300 p-1  px-4 rounded-2xl my-4">
-          <div>
-            <h1 className="text-base font-bold">Recent Activity</h1>
-          </div>
-          <div className="flex justify-between">
-            <div className="flex gap-x-2 text-sm">
-              <span className="mt-1">
-                <MdOutlineFileDownloadDone className="text-green-400" />
-              </span>
-              <h1>Upload new video</h1>
-            </div>
-            <div>28 june</div>
-          </div>
-          <div className="flex justify-between">
-            <div className="flex gap-x-2 text-sm">
-              <span className="mt-1">
-                <MdOutlineFileDownloadDone className="text-green-400" />
-              </span>
-              <h1>Received feedback from trainer</h1>
-            </div>
-            <div>20 june</div>
-          </div>
-          <div className="flex justify-between">
-            <div className="flex gap-x-2 text-sm">
-              <span className="mt-1">
-                <MdOutlineFileDownloadDone className="text-green-400" />
-              </span>
-              <h1>Completed project milestone</h1>
-            </div>
-            <div>22 june</div>
-          </div>
-          <div className="flex justify-between">
-            <div className="flex gap-x-2 text-sm">
-              <span className="mt-1">
-                <MdOutlineFileDownloadDone className="text-green-400" />
-              </span>
-              <h1>Conducted user testing sessions</h1>
-            </div>
-            <div>25 june</div>
-          </div>
-          <div className="flex justify-between">
-            <div className="flex gap-x-2 text-sm">
-              <span className="mt-1">
-                <MdOutlineFileDownloadDone className="text-green-400" />
-              </span>
-              <h1>Finalized design revisions</h1>
-            </div>
-            <div>28 june</div>
+
+        {/* Recent Activity Card */}
+        <div className="border border-gray-300 rounded-2xl px-4 py-3">
+          <h1 className="text-base font-bold mb-3">Recent Activity</h1>
+          <div className="flex flex-col gap-y-2 text-sm">
+            {activities.map((activity, idx) => (
+              <div key={idx} className="flex justify-between items-center">
+                <div className="flex items-center gap-x-2">
+                  <MdOutlineFileDownloadDone className="text-green-500" />
+                  <span>{activity.text}</span>
+                </div>
+                <span className="text-gray-500">{activity.date}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </section>
   );
-}
+};
 
-export default performance
+export default Performance;
