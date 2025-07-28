@@ -5,12 +5,12 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 
 const MainNav = () => {
   return (
-    <section className="pt-4 px-4">
+    <section className="pt-2 px-4">
       <div className="flex flex-wrap justify-between items-center gap-y-3">
         {/* Left Text Section */}
         <div>
           <h1 className="font-bold text-base">Good morning, Lincoln! 👋</h1>
-          <h2 className="text-[12px] text-gray-500">
+          <h2 className="text-[10px] text-gray-500">
             Here&apos;s your performance overview
           </h2>
         </div>

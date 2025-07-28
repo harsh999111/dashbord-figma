@@ -38,7 +38,7 @@ const videoData = [
 
 const Video = () => {
   return (
-    <section className="px-4 pt-4">
+    <section className="px-4 pt-2">
       <div className="flex justify-between items-center mb-4">
         <h1 className="font-bold text-base">Uploaded Videos</h1>
         <div className="font-bold text-sm text-blue-600 cursor-pointer hover:underline">
@@ -46,21 +46,21 @@ const Video = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
         {videoData.map((video, index) => (
-          <div key={index} className="bg-white rounded-xl shadow-sm p-2">
+          <div key={index} className="bg-white rounded-xl shadow-sm p-1">
             <Image
               src={video.img}
               alt={video.title}
               className="w-full h-44 object-cover rounded-lg"
             />
             <h2 className="font-medium mt-2 text-sm">{video.title}</h2>
-            <div className="flex gap-x-4 mt-2 text-sm text-gray-700">
+            <div className="flex gap-x-4 mt-2 text-xs text-gray-700">
               <div className="flex items-center gap-x-1">
                 <IoFootballSharp className="text-pink-400" />
                 <span>{video.sport}</span>
               </div>
-              <div className="flex items-center gap-x-1">
+              <div className="flex items-center gap-x-1 text-xs">
                 <CiCalendarDate className="text-pink-400" />
                 <span>{video.date}</span>
               </div>
